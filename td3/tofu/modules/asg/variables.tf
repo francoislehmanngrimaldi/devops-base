@@ -1,24 +1,39 @@
-variable "ami_id" {
-description = "The ID of the AMI to run."
-type = string
-}
 variable "name" {
-description = "The base name for the instance and all other resources"
-type = string
-}
-variable "instance_count" {
-  description = "Number of instances to deploy"
-  type        = number
-  default     = 1
-}
-variable "instance_type" {
-  description = "The type of the EC2 instance"
+  description = "Name of the Auto Scaling Group"
   type        = string
-  default     = "t2.micro"
 }
 
-variable "port" {
-  description = "Port to allow inbound traffic"
+variable "ami_id" {
+  description = "ID of the AMI to use for instances"
+  type        = string
+}
+
+variable "user_data" {
+  description = "User data to configure instances"
+  type        = string
+}
+
+variable "app_http_port" {
+  description = "HTTP port for the application"
   type        = number
-  default     = 8080
+}
+
+variable "instance_type" {
+  description = "Type of instance to use"
+  type        = string
+}
+
+variable "min_size" {
+  description = "Minimum number of instances in the ASG"
+  type        = number
+}
+
+variable "max_size" {
+  description = "Maximum number of instances in the ASG"
+  type        = number
+}
+
+variable "desired_capacity" {
+  description = "Desired number of instances in the ASG"
+  type        = number
 }
