@@ -16,3 +16,13 @@ resource "aws_security_group_rule" "allow_http_inbound" {
   cidr_blocks       = ["0.0.0.0/0"]
   type              = "ingress"  # Ajout de l'argument type
 }
+resource "aws_instance" "sample_app" {
+  ami           = var.ami_id
+  instance_type = var.instance_type
+  count         = var.instance_count
+
+  tags = {
+    Name = "${var.name}-${count.index + 1}"
+  }
+}
+
