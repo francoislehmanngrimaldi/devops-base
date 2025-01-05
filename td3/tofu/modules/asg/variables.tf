@@ -32,6 +32,12 @@ variable "max_size" {
   description = "Maximum number of instances in the ASG"
   type        = number
 }
+variable "instance_count" {
+  description = "Number of instances to deploy"
+  type        = number
+  default     = 1
+}
+
 
 variable "desired_capacity" {
   description = "Desired number of instances in the ASG"
