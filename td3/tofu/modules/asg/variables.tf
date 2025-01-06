@@ -43,3 +43,9 @@ variable "desired_capacity" {
   description = "Desired number of instances in the ASG"
   type        = number
 }
+variable "target_group_arns" {
+  description = "A list of target group ARNs to associate with the Auto Scaling Group"
+  type        = list(string)
+  default     = []
+}
+
