@@ -12,7 +12,4 @@ output "public_ip" {
   description = "The public IP of the EC2 instance"
   value = aws_instance.sample_app[0].public_ip  # Accéder à l'IP publique de la première instance
 }
-output "alb_dns_name" {
-  description = "The ALB's domain name"
-  value       = module.alb.alb_dns_name
-}
+
