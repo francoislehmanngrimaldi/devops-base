@@ -17,3 +17,7 @@ variable "app_health_check_path" {
   description = "Path for the ALB health check"
   type        = string
 }
+variable "security_group_id" {
+  description = "The ID of the security group for the ALB"
+  type        = string
+}
