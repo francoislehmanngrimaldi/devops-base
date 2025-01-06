@@ -1,51 +1,49 @@
 variable "name" {
-  description = "Name of the Auto Scaling Group"
+  description = "The name prefix for resources"
   type        = string
 }
 
 variable "ami_id" {
-  description = "ID of the AMI to use for instances"
+  description = "The AMI ID for the instances"
+  type        = string
+}
+
+variable "instance_type" {
+  description = "The instance type for the instances"
   type        = string
 }
 
 variable "user_data" {
-  description = "User data to configure instances"
+  description = "User data to initialize the instances"
   type        = string
 }
 
 variable "app_http_port" {
-  description = "HTTP port for the application"
+  description = "The HTTP port on which the app listens"
   type        = number
 }
 
-variable "instance_type" {
-  description = "Type of instance to use"
-  type        = string
-}
-
 variable "min_size" {
-  description = "Minimum number of instances in the ASG"
+  description = "The minimum number of instances in the ASG"
   type        = number
 }
 
 variable "max_size" {
-  description = "Maximum number of instances in the ASG"
+  description = "The maximum number of instances in the ASG"
   type        = number
 }
-variable "instance_count" {
-  description = "Number of instances to deploy"
-  type        = number
-  default     = 1
-}
-
 
 variable "desired_capacity" {
-  description = "Desired number of instances in the ASG"
+  description = "The desired number of instances in the ASG"
   type        = number
 }
-variable "target_group_arns" {
-  description = "A list of target group ARNs to associate with the Auto Scaling Group"
+
+variable "subnet_ids" {
+  description = "The list of subnet IDs where instances will be launched"
   type        = list(string)
-  default     = []
 }
 
+variable "target_group_arns" {
+  description = "A list of target group ARNs to associate with the ASG"
+  type        = list(string)
+}
